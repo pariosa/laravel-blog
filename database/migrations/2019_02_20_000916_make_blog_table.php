@@ -13,7 +13,13 @@ class MakeBlogTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('blogs', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->string('title');
+            $table->string('body'); 
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class MakeBlogTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('blogs');
     }
 }
